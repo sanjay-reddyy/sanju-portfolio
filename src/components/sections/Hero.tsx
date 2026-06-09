@@ -160,7 +160,7 @@ sequence={[
 />
 
           {/* Floating Badges */}
-
+{/* 
           <div className="hidden md:block absolute top-10 -left-5 bg-white/10 backdrop-blur-lg px-4 py-2 rounded-xl">
             Docker
           </div>
@@ -186,7 +186,7 @@ sequence={[
 
           <div className="hidden md:block absolute bottom-2 left-1/2 bg-white/10 backdrop-blur-lg px-4 py-2 rounded-xl">
           Linux
-          </div>
+          </div> */}
 
         </motion.div>
 

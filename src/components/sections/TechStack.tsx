@@ -7,7 +7,7 @@ const stacks = [
   },
   {
     title: "DevOps",
-    tech: ["Docker", "Kubernetes", "Jenkins", "Ansible"],
+    tech: ["Docker", "Kubernetes", "Jenkins", "Linux"],
   },
   {
     title: "Backend",
