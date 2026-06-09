@@ -1,69 +1,62 @@
+import { GitPullRequest, Mail, Network } from "lucide-react";
+
+const contacts = [
+  {
+    Icon: Mail,
+    title: "Email",
+    value: "sanjureddyb7@gmail.com",
+    href: "mailto:sanjureddyb7@gmail.com",
+  },
+  {
+    Icon: GitPullRequest,
+    title: "GitHub",
+    value: "github.com/sanjay-reddyy",
+    href: "https://github.com/sanjay-reddyy",
+  },
+  {
+    Icon: Network,
+    title: "LinkedIn",
+    value: "linkedin.com/in/sanjay-kumar-070943318",
+    href: "https://www.linkedin.com/in/sanjay-kumar-070943318/",
+  },
+];
+
 const Contact = () => {
   return (
-    <section
-      id="contact"
-      className="py-32 px-6 max-w-7xl mx-auto"
-    >
-      <p className="text-cyan-400 mb-3">
-        CONTACT
-      </p>
-
-      <h2 className="text-4xl md:text-5xl font-bold mb-8">
-        Let's Connect
-      </h2>
-
-      <p className="text-gray-400 max-w-2xl mb-10">
-        I'm always open to discussing
-        DevOps, Cloud Engineering,
-        Full Stack Development and
-        exciting opportunities.
-      </p>
-
-      <div className="grid md:grid-cols-3 gap-6">
-
-        <a
-          href="mailto:sanjureddyb7@gmail.com"
-          className="bg-white/5 border border-white/10 rounded-3xl p-6"
-        >
-          <h3 className="text-cyan-400 font-semibold">
-            Email
-          </h3>
-
-          <p className="mt-3 text-gray-300">
-            sanjureddyb7@gmail.com
+    <section id="contact" className="px-6 py-28">
+      <div className="mx-auto max-w-7xl">
+        <div className="rounded-lg border border-white/10 bg-white/[0.04] p-7 md:p-10">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-teal-200">
+            Contact
           </p>
-        </a>
 
-        <a
-          href="https://github.com/sanjay-reddyy"
-          target="_blank"
-          rel="noreferrer"
-          className="bg-white/5 border border-white/10 rounded-3xl p-6"
-        >
-          <h3 className="text-cyan-400 font-semibold">
-            GitHub
-          </h3>
+          <h2 className="text-4xl font-black leading-tight md:text-5xl">
+            Let's build something reliable.
+          </h2>
 
-          <p className="mt-3 text-gray-300">
-            github.com/sanjay-reddyy
+          <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
+            I'm open to conversations around DevOps, cloud engineering, full
+            stack development, and strong engineering opportunities.
           </p>
-        </a>
 
-        <a
-          href="https://www.linkedin.com/in/sanjay-kumar-070943318/"
-          target="_blank"
-          rel="noreferrer"
-          className="bg-white/5 border border-white/10 rounded-3xl p-6"
-        >
-          <h3 className="text-cyan-400 font-semibold">
-            LinkedIn
-          </h3>
-
-          <p className="mt-3 text-gray-300">
-            linkedin.com/in/sanjay-kumar-070943318/
-          </p>
-        </a>
-
+          <div className="mt-10 grid gap-4 md:grid-cols-3">
+            {contacts.map(({ Icon, title, value, href }) => (
+              <a
+                key={title}
+                href={href}
+                target={href.startsWith("http") ? "_blank" : undefined}
+                rel={href.startsWith("http") ? "noreferrer" : undefined}
+                className="group rounded-lg border border-white/10 bg-[#10131f]/70 p-5 transition hover:-translate-y-1 hover:border-teal-300/40"
+              >
+                <Icon size={24} className="text-amber-200" />
+                <h3 className="mt-5 font-bold text-white">{title}</h3>
+                <p className="mt-2 break-words text-sm leading-6 text-slate-400 group-hover:text-slate-200">
+                  {value}
+                </p>
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

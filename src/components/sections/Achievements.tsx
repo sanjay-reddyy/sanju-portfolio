@@ -1,60 +1,56 @@
 import { motion } from "framer-motion";
+import { BadgeCheck, CloudCog, Rocket } from "lucide-react";
 
 const stats = [
   {
+    Icon: BadgeCheck,
     number: "RHCSA",
     title: "Red Hat Certified",
+    tone: "text-amber-200",
   },
   {
+    Icon: CloudCog,
     number: "2",
     title: "Cloud Platforms",
+    tone: "text-teal-200",
   },
   {
+    Icon: Rocket,
     number: "4+",
     title: "Production Projects",
+    tone: "text-rose-200",
   },
 ];
 
 const Achievements = () => {
   return (
-    <section className="py-32 px-6 max-w-7xl mx-auto">
-      <p className="text-cyan-400 mb-3">
-        IMPACT & ACHIEVEMENTS
-      </p>
+    <section className="px-6 py-24">
+      <div className="mx-auto max-w-7xl">
+        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-teal-200">
+          Impact & Achievements
+        </p>
 
-      <h2 className="text-4xl md:text-5xl font-bold mb-14">
-        Numbers That Reflect My Journey
-      </h2>
+        <h2 className="mb-12 max-w-4xl text-4xl font-black leading-tight md:text-5xl">
+          Signals that reflect hands-on engineering growth.
+        </h2>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid gap-4 md:grid-cols-3">
+          {stats.map((item) => (
+            <motion.div
+              key={item.title}
+              whileHover={{ y: -8 }}
+              className="rounded-lg border border-white/10 bg-[#10131f]/70 p-7"
+            >
+              <item.Icon size={26} className={item.tone} />
 
-        {stats.map((item) => (
-          <motion.div
-            key={item.title}
-            whileHover={{
-              scale: 1.05,
-              y: -8,
-            }}
-            className="
-              bg-white/5
-              border
-              border-white/10
-              rounded-3xl
-              p-8
-              backdrop-blur-lg
-              text-center
-            "
-          >
-            <h3 className="text-4xl font-bold text-cyan-400">
-              {item.number}
-            </h3>
+              <h3 className="mt-8 text-4xl font-black text-white">
+                {item.number}
+              </h3>
 
-            <p className="mt-4 text-gray-400">
-              {item.title}
-            </p>
-          </motion.div>
-        ))}
-
+              <p className="mt-3 text-slate-400">{item.title}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

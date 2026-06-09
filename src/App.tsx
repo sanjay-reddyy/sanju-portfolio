@@ -21,11 +21,11 @@ function App() {
 useEffect(() => {
   const introTimer = setTimeout(() => {
     setShowIntro(false);
-  }, 2000);
+  }, 1200);
 
   const splashTimer = setTimeout(() => {
     setShowSplash(false);
-  }, 5000);
+  }, 3200);
 
   return () => {
     clearTimeout(introTimer);
@@ -44,14 +44,16 @@ return (
     {!showSplash && (
       <>
         <Navbar />
-        <Hero />
-        <About />
-        <TechStack />
-        <Experience />
-        <Achievements />
-        <Projects />
-        <Certifications />
-        <Contact />
+        <main>
+          <Hero />
+          <About />
+          <TechStack />
+          <Experience />
+          <Achievements />
+          <Projects />
+          <Certifications />
+          <Contact />
+        </main>
         <Footer />
       </>
     )}
