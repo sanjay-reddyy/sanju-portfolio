@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  color-scheme: dark;
+  color-scheme: dark light;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
   background: #080a12;
@@ -27,6 +27,93 @@ body {
 body::selection {
   background: rgba(45, 212, 191, 0.35);
   color: #ffffff;
+}
+
+body.light-theme {
+  background:
+    linear-gradient(180deg, #ffffff 0%, #f8fafc 42%, #eef4f8 100%),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.055) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(15, 23, 42, 0.045) 1px, transparent 1px);
+  background-size: auto, 48px 48px, 48px 48px;
+  color: #0f172a;
+}
+
+body.light-theme nav {
+  border-color: rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.82);
+}
+
+body.light-theme [class*="bg-[#080a12]"],
+body.light-theme [class*="bg-[#10131f]"],
+body.light-theme [class*="bg-white/["],
+body.light-theme [class*="bg-white/5"],
+body.light-theme [class*="bg-white/8"] {
+  background-color: rgba(255, 255, 255, 0.82);
+}
+
+body.light-theme [class*="border-white/10"],
+body.light-theme [class*="border-white/15"],
+body.light-theme [class*="border-white/20"],
+body.light-theme [class*="border-white/25"] {
+  border-color: rgba(15, 23, 42, 0.12);
+}
+
+body.light-theme [class*="text-white"],
+body.light-theme [class*="text-slate-200"],
+body.light-theme [class*="text-slate-300"],
+body.light-theme [class*="text-slate-400"] {
+  color: #0f172a;
+}
+
+body.light-theme [class*="text-slate-500"] {
+  color: #475569;
+}
+
+body.light-theme [class*="text-teal-200"],
+body.light-theme [class*="text-teal-100"] {
+  color: #0f766e;
+}
+
+body.light-theme [class*="text-amber-200"],
+body.light-theme [class*="text-amber-100"] {
+  color: #b45309;
+}
+
+body.light-theme [class*="bg-teal-300/10"] {
+  background-color: rgba(13, 148, 136, 0.1);
+}
+
+body.light-theme [class*="bg-amber-200/10"] {
+  background-color: rgba(217, 119, 6, 0.1);
+}
+
+body.light-theme a[class*="bg-white"],
+body.light-theme button[class*="bg-white"] {
+  background-color: #0f172a;
+  color: #ffffff;
+}
+
+body.light-theme [class*="shadow-black"] {
+  --tw-shadow-color: rgba(15, 23, 42, 0.16);
+}
+
+body.light-theme [class*="from-[#080a12]"] {
+  --tw-gradient-from: rgba(255, 255, 255, 0.86) var(--tw-gradient-from-position);
+  --tw-gradient-to: rgba(255, 255, 255, 0) var(--tw-gradient-to-position);
+}
+
+body.light-theme [class*="to-[#10131f]"] {
+  --tw-gradient-to: rgba(255, 255, 255, 0.72) var(--tw-gradient-to-position);
+}
+
+body.light-theme .certificate-badge {
+  border-color: rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+}
+
+body.light-theme .certificate-badge-text {
+  color: #0f172a;
 }
 
 a,

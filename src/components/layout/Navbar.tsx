@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { ArrowDownToLine, Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowDownToLine, Menu, Moon, Sun, X } from "lucide-react";
 
 const links = [
   { label: "About", href: "#about" },
@@ -11,6 +11,20 @@ const links = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [theme, setTheme] = useState<"dark" | "light">(() => {
+    if (typeof window === "undefined") {
+      return "dark";
+    }
+
+    return localStorage.getItem("theme") === "light" ? "light" : "dark";
+  });
+
+  useEffect(() => {
+    document.body.classList.toggle("light-theme", theme === "light");
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const isLight = theme === "light";
 
   return (
     <nav
@@ -38,23 +52,45 @@ const Navbar = () => {
           ))}
         </div>
 
-        <a
-          href="/resume.pdf"
-          download
-          className="hidden items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-teal-200 lg:flex"
-        >
-          <ArrowDownToLine size={16} />
-          Resume
-        </a>
+        <div className="hidden items-center gap-2 lg:flex">
+          <button
+            type="button"
+            onClick={() => setTheme(isLight ? "dark" : "light")}
+            className="grid h-10 w-10 place-items-center rounded-lg border border-white/10 bg-white/[0.04] text-slate-200 transition hover:border-teal-300/40 hover:text-white"
+            aria-label={isLight ? "Switch to dark theme" : "Switch to light theme"}
+          >
+            {isLight ? <Moon size={17} /> : <Sun size={17} />}
+          </button>
 
-        <button
-          className="grid h-10 w-10 place-items-center rounded-lg border border-white/10 bg-white/5 text-white md:hidden"
-          onClick={() => setIsOpen((prev) => !prev)}
-          aria-expanded={isOpen}
-          aria-label={isOpen ? "Close menu" : "Open menu"}
-        >
-          {isOpen ? <X /> : <Menu />}
-        </button>
+          <a
+            href="/resume.pdf"
+            download
+            className="hidden items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-teal-200 lg:flex"
+          >
+            <ArrowDownToLine size={16} />
+            Resume
+          </a>
+        </div>
+
+        <div className="flex items-center gap-2 md:hidden">
+          <button
+            type="button"
+            onClick={() => setTheme(isLight ? "dark" : "light")}
+            className="grid h-10 w-10 place-items-center rounded-lg border border-white/10 bg-white/5 text-white"
+            aria-label={isLight ? "Switch to dark theme" : "Switch to light theme"}
+          >
+            {isLight ? <Moon size={18} /> : <Sun size={18} />}
+          </button>
+
+          <button
+            className="grid h-10 w-10 place-items-center rounded-lg border border-white/10 bg-white/5 text-white"
+            onClick={() => setIsOpen((prev) => !prev)}
+            aria-expanded={isOpen}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+          >
+            {isOpen ? <X /> : <Menu />}
+          </button>
+        </div>
       </div>
 
       {isOpen && (

@@ -144,8 +144,8 @@ const About = () => {
                     alt="Degree certificate"
                     className="h-full w-full rounded-full object-cover"
                   />
-                  <div className="absolute inset-x-4 bottom-4 rounded-full border border-white/10 bg-black/55 px-4 py-2 text-center backdrop-blur-md">
-                    <p className="text-sm font-bold text-white">
+                  <div className="certificate-badge absolute inset-x-4 bottom-4 rounded-full border border-white/10 bg-black/55 px-4 py-2 text-center backdrop-blur-md">
+                    <p className="certificate-badge-text text-sm font-bold text-white">
                       Degree Certificate
                     </p>
                   </div>
